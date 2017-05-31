@@ -1,0 +1,15 @@
+div.container {
+    text-align: center;
+}
+
+#myCanvas {
+    width: 200px;
+    height: 100px;
+    margin: 20px auto; /* Ez azt jelenti, hogy a margó alul-felül 20px és jobbról-balról auto, azaz a szöveg, tartalom ami benne lesz, középre lesz igazítva. */
+    border: solid 1px black;
+    box-shadow: 0 0 5px;
+}
+
+#myImg {
+    display: none;
+}
