@@ -35,17 +35,31 @@ fillImg();
 //Kép húzása és dobása
 //Alapértelmezett esemény megállítása.
 function allowDrop(ev) {
-    console.log(ev);
+    ev.target.style.border = "dashed 5px #e0e0e0";
+    //console.log(ev.target);
     ev.preventDefault(); //Az alap eseményt, amit a böngésző csinálna, megállítjuk.
     
     
 }
 
+//Amikor lehuzzák az elemről a másik elemet
+function dropLeaved(ev) {
+    ev.target.style.border = "solid 1px #e0e0e0";
+    ev.preventDefault(); //Az alap eseményt, amit a böngésző csinálna, megállítjuk.
+}
 
+//Elem húzásának megkezdése
+function drag(ev) {
+    ev.dataTransfer.setData("id", ev.target.id); //Az eseménybe beletesszük a húzott elemünk id-jét.
+    
+}
 
-
-
-
+//Ledobják az elemet.
+function drop(ev) {
+    ev.preventDefault(); //Az alap eseményt, amit a böngésző csinálna, megállítjuk.
+    var id = ev.dataTransfer.getData("id");
+    
+}
 
 
 

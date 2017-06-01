@@ -44,8 +44,8 @@
     <h3>Drug and Drop példa</h3>
     <!-- Drug and Drop -->
     <div class="container drop-container">
-        <div class="source"><img src="https://www.w3schools.com/html/img_w3slogo.gif" draggable="true"></div>
-        <div class="targed" ondragover="allowDrop(event)">&nbsp;</div>
+        <div class="source"><img id="img1" src="https://www.w3schools.com/html/img_w3slogo.gif" draggable="true" ondragstart="drag(event)"></div>
+        <div class="target" ondragover="allowDrop(event)" ondragleave="dropLeaved(event)">&nbsp;</div>
     </div>
     <!-- /Drug and Drop -->
 
