@@ -17,22 +17,34 @@ div.container {
 .drop-container {
     background-color: aliceblue;
     box-shadow: 0 0 5px;
+    min-height: 700px;
+    position: relative;
 }
 
 .drop-container .source,
 .drop-container .target {
     width: 200px;
-    height: 100px;
+    height: 500px;
     margin: 10px;
     display: inline-block;    /*sorban fognak megjelenni, nem egymás alatt*/
     border: solid 1px #777777;
     background-color: white;
-    position: relative;
+    position: absolute;
+    top: 10px;
 }
 
-#img1 {
-    top: 30px;
+.drop-container .source {
+    left: 200px;
+}
+
+.drop-container .target {
+    left: 600px;
+}
+
+
+.drop-container img {
     margin: 0 auto;
+    width: 80%;
 }
 
 .price-div {

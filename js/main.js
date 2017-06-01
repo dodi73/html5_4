@@ -34,7 +34,7 @@ fillImg();
 ///////////////////////////////////////////////////
 
 //Kép húzása és dobása
-//Alapértelmezett esemény megállítása.
+//Alapértelmezett esemény megállítása, letiltása, hogy az az esemény menjen végbe amit mi //megadunk.
 function allowDrop(ev) {
     //ev.target.style.border = "dashed 5px #e0e0e0";
     //console.log(ev.target);
@@ -59,35 +59,40 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault(); //Az alap eseményt, amit a böngésző csinálna, megállítjuk.
     
-    //Esemény célpontja.
+    //Esemény célpontja, ahova beejtettük az elemet.
     var div = ev.target;
-   
-    //Elem hozzáadása.
+       
+    //Elem hozzáadása. Elmentjük, hogy honnan indult a húzás.
     var id = ev.dataTransfer.getData("id");
+    //Megadjuk, hogy honnan húztuk ki az elemet, itt még a szülőé, dobás előtt
     var sdiv = document.querySelector("#"+id).parentNode;
     
-    //    ev.target.appendChild(document.querySelector("#"+id));
+    // ev.target.appendChild(document.querySelector("#"+id));
+    //Hozzáadjuk az új helyhez, azt az elemet, amit elkezdtünk húzni.
     div.appendChild(document.querySelector("#"+id));
     
-    //Ár kalkulálása.
+    //Ár kalkulálása, a forrás és a cél div összegét is frissítjük.
     calcPrice(div);
     calcPrice(sdiv);
 }
 
 function calcPrice(div) {
-    //DIV ELEMEINEK MEGKERESÉSE.
+    //Lekérjük az összes olyan elemet, aminek van data-ar tulajdonsága.
     var order = div.querySelectorAll("[data-ar]");
     
     //Végigmegyünk a rendelés elemein
     var price = 0;
+    //Az összes képen, ami be van rakva a div-be végigmegyünk és összesítjük, göngyöljük.
+    // Az order tömbön megyünk végig, és az átadja a 2. paraméterében megadott fgv.-nek 
+    // egyesével a tömb értékeit. Szöveg értéket egész decimális számmá alakítjuk.
     Array.prototype.forEach.call(order, function(item) {
         var ar = item.getAttribute("data-ar");
         price += parseInt(ar, 10);                                         
     });
     
+    // Az adott div-be (.price-div) beleírjuk a fent összesített árat.
     div.querySelector(".price-div").innerHTML = price+" Ft";
-    
-    
+
 }
 
 
