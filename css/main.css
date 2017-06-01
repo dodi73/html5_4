@@ -13,3 +13,17 @@ div.container {
 #myImg {
     display: none;
 }
+
+.drop-container {
+    background-color: aliceblue;
+    box-shadow: 0 0 5px;
+}
+
+.drop-container div {
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    display: inline-block;    /*sorban fognak megjelenni, nem egymás alatt*/
+    border: solid 1px #777777;
+    background-color: white;
+}

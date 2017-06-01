@@ -30,3 +30,25 @@ function fillImg() {
 }
 
 fillImg();
+
+
+//Kép húzása és dobása
+//Alapértelmezett esemény megállítása.
+function allowDrop(ev) {
+    console.log(ev);
+    ev.preventDefault(); //Az alap eseményt, amit a böngésző csinálna, megállítjuk.
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
