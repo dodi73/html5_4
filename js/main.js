@@ -31,11 +31,12 @@ function fillImg() {
 
 fillImg();
 
+///////////////////////////////////////////////////
 
 //Kép húzása és dobása
 //Alapértelmezett esemény megállítása.
 function allowDrop(ev) {
-    ev.target.style.border = "dashed 5px #e0e0e0";
+    //ev.target.style.border = "dashed 5px #e0e0e0";
     //console.log(ev.target);
     ev.preventDefault(); //Az alap eseményt, amit a böngésző csinálna, megállítjuk.
     
@@ -44,7 +45,7 @@ function allowDrop(ev) {
 
 //Amikor lehuzzák az elemről a másik elemet
 function dropLeaved(ev) {
-    ev.target.style.border = "solid 1px #e0e0e0";
+    //ev.target.style.border = "solid 1px #e0e0e0";
     ev.preventDefault(); //Az alap eseményt, amit a böngésző csinálna, megállítjuk.
 }
 
@@ -57,7 +58,35 @@ function drag(ev) {
 //Ledobják az elemet.
 function drop(ev) {
     ev.preventDefault(); //Az alap eseményt, amit a böngésző csinálna, megállítjuk.
+    
+    //Esemény célpontja.
+    var div = ev.target;
+   
+    //Elem hozzáadása.
     var id = ev.dataTransfer.getData("id");
+    var sdiv = document.querySelector("#"+id).parentNode;
+    
+    //    ev.target.appendChild(document.querySelector("#"+id));
+    div.appendChild(document.querySelector("#"+id));
+    
+    //Ár kalkulálása.
+    calcPrice(div);
+    calcPrice(sdiv);
+}
+
+function calcPrice(div) {
+    //DIV ELEMEINEK MEGKERESÉSE.
+    var order = div.querySelectorAll("[data-ar]");
+    
+    //Végigmegyünk a rendelés elemein
+    var price = 0;
+    Array.prototype.forEach.call(order, function(item) {
+        var ar = item.getAttribute("data-ar");
+        price += parseInt(ar, 10);                                         
+    });
+    
+    div.querySelector(".price-div").innerHTML = price+" Ft";
+    
     
 }
 

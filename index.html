@@ -44,8 +44,48 @@
     <h3>Drug and Drop példa</h3>
     <!-- Drug and Drop -->
     <div class="container drop-container">
-        <div class="source"><img id="img1" src="https://www.w3schools.com/html/img_w3slogo.gif" draggable="true" ondragstart="drag(event)"></div>
-        <div class="target" ondragover="allowDrop(event)" ondragleave="dropLeaved(event)">&nbsp;</div>
+
+        <div class="source"
+            ondragover="allowDrop(event)"
+            onmoseover="allowDrop(event)"
+            onmouseout="dropLeaved(event)" 
+            ondrop="drop(event)">
+            <p>&nbsp;</p>
+            <img id="img1"
+                 src="https://www.w3schools.com/html/img_w3slogo.gif"
+                 draggable="true"
+                 ondragstart="drag(event)"
+                 data-ar="1000">
+            <img id="img2"
+                 src="https://www.w3schools.com/html/img_w3slogo.gif"
+                 draggable="true"
+                 ondragstart="drag(event)"
+                 data-ar="1250">
+            <img id="img3"
+                 src="https://www.w3schools.com/html/img_w3slogo.gif"
+                 draggable="true"
+                 ondragstart="drag(event)"
+                 data-ar="1510">
+            
+            <div class="price-div"></div>
+            
+        </div>
+        
+        <div class="target" 
+             ondragover="allowDrop(event)"
+             onmoseover="allowDrop(event)"
+             onmouseout="dropLeaved(event)" 
+             ondrop="drop(event)">
+            <p>&nbsp;</p>
+            
+            <div class="price-div"></div>
+            
+        </div>
+        
+        <div class="ar-div">
+            0 Ft
+        </div>
+        
     </div>
     <!-- /Drug and Drop -->
 

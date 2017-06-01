@@ -19,11 +19,26 @@ div.container {
     box-shadow: 0 0 5px;
 }
 
-.drop-container div {
+.drop-container .source,
+.drop-container .target {
     width: 200px;
     height: 100px;
     margin: 10px;
     display: inline-block;    /*sorban fognak megjelenni, nem egymás alatt*/
     border: solid 1px #777777;
     background-color: white;
+    position: relative;
+}
+
+#img1 {
+    top: 30px;
+    margin: 0 auto;
+}
+
+.price-div {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 30px;
+    background-color: aqua;
 }
